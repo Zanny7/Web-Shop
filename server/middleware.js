@@ -12,7 +12,6 @@ module.exports = (req, res, next) => {
             });
         }
 
-
         // add meta data to the request/new post
         const now = new Date().toISOString();
         req.body.meta = {

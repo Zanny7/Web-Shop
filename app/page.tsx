@@ -1,4 +1,4 @@
-import type { ProductsResponse } from "./types";
+import type { ProductsResponse } from "@/types/product-response";
 
 const API_URL = "http://localhost:4000";
 const defaultLimit = "6";

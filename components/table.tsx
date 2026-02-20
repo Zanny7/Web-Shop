@@ -1,7 +1,12 @@
 import { table } from "console";
 
 export default function Table() {
-    return <div>
-        
-    </div>;
+	return (
+		<div>
+			<table>
+                <th>Hej</th>
+                <td>då</td>
+			</table>
+		</div>
+	);
 }

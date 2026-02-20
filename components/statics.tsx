@@ -1,0 +1,1 @@
+// code for the statics component

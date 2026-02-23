@@ -1,21 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { SlidersHorizontal, X } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 import type { Category } from "@/types/category";
 
-type Props = {
-	categories: Category[];
-};
+const API_URL = "http://localhost:4000";
 
-export default function Filter({ categories }: Props) {
+export default function Filter() {
+	const [categories, setCategories] = useState<Category[]>([]);
+
+	useEffect(() => {
+		fetch(`${API_URL}/categories`)
+			.then((res) => res.json())
+			.then(setCategories);
+	}, []);
 	const searchParams = useSearchParams();
 	const router = useRouter();
 	const pathname = usePathname();
 
 	const currentCategory = searchParams.get("categoryId") ?? "";
 	const currentStatus = searchParams.get("availabilityStatus") ?? "";
-	const hasActiveFilters = currentCategory || currentStatus;
+	const currentOrder = searchParams.get("_order") ?? "desc";
 
 	const updateParam = (key: string, value: string) => {
 		const params = new URLSearchParams(searchParams.toString());
@@ -28,11 +34,9 @@ export default function Filter({ categories }: Props) {
 		router.replace(`${pathname}?${params.toString()}`);
 	};
 
-	const clearAllFilters = () => {
+	const toggleOrder = () => {
 		const params = new URLSearchParams(searchParams.toString());
-		params.delete("categoryId");
-		params.delete("availabilityStatus");
-		params.delete("page");
+		params.set("_order", currentOrder === "asc" ? "desc" : "asc");
 		router.replace(`${pathname}?${params.toString()}`);
 	};
 
@@ -64,11 +68,11 @@ export default function Filter({ categories }: Props) {
 
 			<button
 				type="button"
-				onClick={hasActiveFilters ? clearAllFilters : undefined}
+				onClick={toggleOrder}
 				className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700 transition"
 			>
-				{hasActiveFilters ? <X size={16} /> : <SlidersHorizontal size={16} />}
-				{hasActiveFilters ? "Clear" : "Filter"}
+				<ArrowUpDown size={16} />
+				Filter
 			</button>
 		</>
 	);

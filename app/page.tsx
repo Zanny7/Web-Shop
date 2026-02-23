@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import SearchBar from "@/components/search/search-bar";
 import type { ProductsResponse } from "@/types/product-response";
+import Header from "@/components/header";
 import Table from "@/components/table";
 
 const API_URL = "http://localhost:4000";
@@ -33,6 +34,7 @@ export default async function Home({
 	return (
 		<main>
 			<h1>Products</h1>
+			<Header />
 			<Suspense>
 				<SearchBar />
 			</Suspense>

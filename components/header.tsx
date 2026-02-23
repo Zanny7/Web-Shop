@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header className="flex items-start justify-between border-b border-gray-200 bg-white px-6 py-6">
@@ -9,10 +11,11 @@ export default function Header() {
       </div>
 
       {/* höger sida */}
-      <button type="button" className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700">
+      <Link className="bg-purple-700 rounded p-4" href="/products/create">+ Add Product</Link>
+      {/* <button type="button" className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700">
         <span className="text-lg leading-none">+</span>
         Add Product
-        </button>
+        </button> */}
     </header>
   );
 }

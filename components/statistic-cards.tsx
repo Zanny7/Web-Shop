@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import { Package2, CircleCheckBig, TriangleAlert, CircleX } from "lucide-react";
 
 type Props = {
   products: Product[];
@@ -31,7 +32,7 @@ export default function StatisticCards({ products }: Props) {
               {totalProducts}
             </h3>
           </div>
-          <div className="bg-purple-100 p-4 rounded-lg text-xl">📦</div>
+          <div className="bg-purple-100 p-4 rounded-lg text-xl"><Package2 className="w-6 h-6 text-purple-600" /></div>
         </div>
 
         {/* In stock */}
@@ -42,7 +43,7 @@ export default function StatisticCards({ products }: Props) {
               {inStock}
             </h3>
           </div>
-          <div className="bg-green-100 p-4 rounded-lg text-xl">✅</div>
+          <div className="bg-green-100 p-4 rounded-lg text-xl"><CircleCheckBig className="w-6 h-6 text-green-600" /></div>
         </div>
 
         {/* Low stock */}
@@ -53,7 +54,7 @@ export default function StatisticCards({ products }: Props) {
               {lowStock}
             </h3>
           </div>
-          <div className="bg-orange-100 p-4 rounded-lg text-xl">⚠️</div>
+          <div className="bg-orange-100 p-4 rounded-lg text-xl"><TriangleAlert className="w-6 h-6 text-orange-600" /></div>
         </div>
 
         {/* Out of stock */}
@@ -64,7 +65,7 @@ export default function StatisticCards({ products }: Props) {
               {outOfStock}
             </h3>
           </div>
-          <div className="bg-red-100 p-4 rounded-lg text-xl">❌</div>
+          <div className="bg-red-100 p-4 rounded-lg text-xl"><CircleX className="w-6 h-6 text-red-600" /></div>
         </div>
       </div>
     </section>

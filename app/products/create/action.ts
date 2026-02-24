@@ -27,7 +27,7 @@ export async function addProduct(formData: FormData){
 
     console.log(newProduct)
 
-    const res = await fetch(`${API_URL}/products/`, {
+    const res = await fetch(`${API_URL}/products`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newProduct),
@@ -37,6 +37,6 @@ export async function addProduct(formData: FormData){
     console.log(data);
 
     revalidatePath("/");
-    redirect("/");
+    // redirect("/");
     
 }

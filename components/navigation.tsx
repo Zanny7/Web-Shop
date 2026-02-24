@@ -64,7 +64,7 @@ export default function Navigation() {
 			</div>
 
 			{/* Normal Navigation */}
-            <nav className="hidden md:flex flex-col w-50 min-h-screen border-r border-gray-300">
+            <nav className="hidden md:flex flex-col w-50 min-h-screen border-r border-gray-300 bg-white">
                 {/* Added border and padding instead of margin and a div for the line */}
 				<header className="p-5 flex flex-col border-b border-gray-300">
 					<h1 className="text-2xl font-bold">Webbutiken</h1>

@@ -12,10 +12,6 @@ export default function Header() {
 
       {/* höger sida */}
       <Link className="bg-purple-700 rounded p-4" href="/products/create">+ Add Product</Link>
-      {/* <button type="button" className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700">
-        <span className="text-lg leading-none">+</span>
-        Add Product
-        </button> */}
     </header>
   );
 }

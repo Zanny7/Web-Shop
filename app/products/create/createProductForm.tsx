@@ -92,9 +92,6 @@ export default function CreateProductForm() {
                 <span className="w-[25%]">{preview.brand}</span>
                 <span className="w-[25%]">{preview.price}$</span>
                 <span className="w-[25%]">{preview.stock}</span>
-                {/* <span><strong>Category ID:</strong> {preview.categoryId}</span>
-                <span><strong>Description:</strong>{preview.description}</span>
-                <span><strong>Thumbnail:</strong>{preview.thumbnail}</span> */}
             </div>
         </div>
       )}

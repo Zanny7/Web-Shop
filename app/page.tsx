@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import SearchBar from "@/components/search/search-bar";
 import type { ProductsResponse } from "@/types/product-response";
 import Header from "@/components/header";
+import SearchFilterBar from "@/components/search/wrapper";
 import Table from "@/components/table";
 
 const API_URL = "http://localhost:4000";

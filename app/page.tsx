@@ -4,6 +4,7 @@ import type { ProductsResponse } from "@/types/product-response";
 import Header from "@/components/header";
 import SearchFilterBar from "@/components/search/wrapper";
 import Table from "@/components/table";
+import StatisticCards from "@/components/statistic-cards";
 
 const API_URL = "http://localhost:4000";
 const defaultLimit = "6";
@@ -36,16 +37,10 @@ export default async function Home({
 		<main>
 			<h1>Products</h1>
 			<Header />
+      <StatisticCards products={products} />
 			<Suspense>
-				<SearchBar />
+				<SearchFilterBar />
 			</Suspense>
-			<div>
-				{products.map((product) => (
-					<h2 key={product.id}>
-						{product.title} - {product.category?.name}
-					</h2>
-				))}
-			</div>
 
 			<Table
 				products={products}

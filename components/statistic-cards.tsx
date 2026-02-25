@@ -1,11 +1,13 @@
-import type { Product } from "@/types/product";
+import type { ProductsResponse } from "@/types/product-response";
 import { Package2, CircleCheckBig, TriangleAlert, CircleX } from "lucide-react";
+import { API_URL } from "@/lib/config";
 
-type Props = {
-  products: Product[];
-};
+export default async function StatisticCards() {
+  const { products }: ProductsResponse = await fetch(
+    `${API_URL}/products/?_expand=category`,
+      { cache: "no-store" } // Always fetch fresh data so statistic cards update immediately when products change/adds(?) but don't know if this is the best way to do it
+  ).then((res) => res.json());
 
-export default function StatisticCards({ products }: Props) {
   const LOW_STOCK_THRESHOLD = 10;
 
   const totalProducts = products.length;

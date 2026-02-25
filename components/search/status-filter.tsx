@@ -24,7 +24,7 @@ export default function StatusFilter() {
 		<select
 			value={currentStatus}
 			onChange={(e) => updateParam("availabilityStatus", e.target.value)}
-			className="rounded-lg border border-gray-200 bg-white py-2 px-4 text-sm text-gray-700 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+			className="rounded-lg border border-gray-200 bg-white py-2 px-4 text-sm text-gray-700 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
 		>
 			<option value="">All status</option>
 			<option value="In Stock">In stock</option>

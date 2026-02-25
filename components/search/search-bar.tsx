@@ -30,7 +30,7 @@ export default function SearchBar() {
         placeholder="Search products..."
         defaultValue={searchParams.get("q") ?? ""}
         onChange={(e) => handleSearch(e.target.value)}
-        className="w-full rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+        className="w-full rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
       />
     </div>
   );

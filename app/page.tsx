@@ -34,8 +34,8 @@ export default async function Home({
 	console.log(products);
 
 	return (
-		<main>
-			<h1>Products</h1>
+		<main className="w-full p-5">
+			
 			<Header />
       <StatisticCards products={products} />
 			<Suspense>

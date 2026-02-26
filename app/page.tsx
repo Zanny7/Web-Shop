@@ -37,20 +37,24 @@ export default async function Home({
   console.log(products);
 
 	return (
-		<main className="w-full p-5">
-			
-			<Header />
-      <StatisticCards products={products} />
-      <Suspense>
-        <SearchBarWrapper />
-      </Suspense>
+    
+      <main className="w-full p-5">
+        <Header />
 
-      <Table
-        products={products}
-        total={total}
-        page={currentPage}
-        pages={pages}
-      />
-    </main>
+        <div className="w-10/12 mx-auto">
+        <StatisticCards products={products} />
+        <Suspense>
+          <SearchBarWrapper />
+        </Suspense>
+
+        <Table
+          products={products}
+          total={total}
+          page={currentPage}
+          pages={pages}
+        />
+        </div>
+      </main>
+  
   );
 }

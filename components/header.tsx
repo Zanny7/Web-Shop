@@ -11,7 +11,7 @@ export default function Header() {
       </div>
 
       {/* höger sida */}
-      <Link className="bg-purple-600 hover:bg-purple-700 rounded p-4 text-white text-m font-medium" href="/products/create">+ Add Product</Link>
+      <Link className="bg-accent hover:bg-accent-hover rounded p-4 text-white text-m font-medium" href="/products/create">+ Add Product</Link>
     </header>
   );
 }

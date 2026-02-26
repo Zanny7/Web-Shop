@@ -11428,7 +11428,13 @@
         "https://cdn.dummyjson.com/product-images/womens-shoes/pampi-shoes/4.webp"
       ],
       "thumbnail": "https://cdn.dummyjson.com/product-images/womens-shoes/pampi-shoes/thumbnail.webp",
-      "categoryId": 23
+      "categoryId": 23,
+      "category": {
+        "id": 23,
+        "name": "Women's Shoes",
+        "slug": "womens-shoes",
+        "image": "https://placehold.co/600x400"
+      }
     },
     {
       "id": 189,

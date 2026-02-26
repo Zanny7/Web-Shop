@@ -48,48 +48,48 @@ export default function CreateProductForm() {
     <>
       <Form action={addProduct}>
         {/* relative w-6/12 mx-auto grid grid-cols-[1fr_5fr] items-center rounded */}
-        <div className="flex flex-col w-6/12 mx-auto gap-y-4 bg-[linear-gradient(to_right,rgb(229,229,229)_7.1rem,transparent_7.1rem)] rounded-tl rounded-bl pl-3">
+        <div className="flex flex-col w-6/12 mx-auto gap-y-4 p-6 rounded-md shadow-sm border border-gray-200 bg-gray-50 text-gray-500">
           
 
           <div className="flex items-center">
             <label htmlFor="title" className="min-w-25">Title</label>
-            <input className="flex-1 border-gray-300 border" id="title" name="title" type="text" required />
+            <input className="flex-1 border-gray-300 border rounded" id="title" name="title" type="text" required />
           </div>
 
           <div className="flex items-center">
             <label htmlFor="brand" className="min-w-25">Brand</label>
-            <input className="flex-1 border-gray-300 border" id="brand" name="brand" type="text" required />
+            <input className="flex-1 border-gray-300 border rounded" id="brand" name="brand" type="text" required />
           </div>
 
           <div className="flex items-center">
             <label htmlFor="price" className="min-w-25">Price</label>
-            <input className="flex-1 border-gray-300 border" id="price" name="price" type="number" required />
+            <input className="flex-1 border-gray-300 border rounded" id="price" name="price" type="number" required />
           </div>
 
           <div className="flex items-center">
             <label htmlFor="stock" className="min-w-25">Stock</label>
-            <input className="flex-1 border-gray-300 border" id="stock" name="stock" type="number" required />
+            <input className="flex-1 border-gray-300 border rounded" id="stock" name="stock" type="number" required />
           </div>
 
           <div className="flex items-center">
             <label htmlFor="categoryId" className="min-w-25">Category ID</label>
-            <input className="flex-1 border-gray-300 border" id="categoryId" name="categoryId" type="number" required />
+            <input className="flex-1 border-gray-300 border rounded" id="categoryId" name="categoryId" type="number" required />
           </div>
           
           <div className="flex items-center">
             <label htmlFor="thumbnail" className="min-w-25">Thumbnail</label>
-            <input className="flex-1 border-gray-300 border" id="thumbnail" name="thumbnail" type="url" />
+            <input className="flex-1 border-gray-300 border rounded" id="thumbnail" name="thumbnail" type="url" />
           </div>
 
           <div className="flex items-center">
             <label htmlFor="description" className="min-w-25">Description</label>
-            <textarea className="flex-1 border-gray-300 border min-w-[185]" id="description" name="description" required />
+            <textarea className="flex-1 border-gray-300 border rounded min-w-[185]" id="description" name="description" required />
           </div>
         </div>
         <div className="flex gap-4 mt-4 justify-center">
-            <button className="bg-purple-600 text-m text-white font-medium rounded focus:bg-purple-700 py-2 min-w-[80px]" type="submit">Save</button>
+            <button className=" bg-purple-600 text-m text-white font-medium rounded focus:bg-purple-700 py-2 min-w-[80px]" type="submit">Save</button>
 
-            <button className="bg-purple-600 text-m text-white font-medium rounded focus:bg-purple-700 py-2 min-w-[80px]"
+            <button className=" bg-purple-600 text-m text-white font-medium rounded focus:bg-purple-700 py-2 min-w-[80px]"
               type="button"
               onClick={(e) => {
                 const form = e.currentTarget.form;
@@ -114,7 +114,7 @@ export default function CreateProductForm() {
             </div>
 
             <div className="flex w-full gap-2 items-center border-gray-300 border bg-white px-4 py-1 rounded-b">
-                <div className="w-[25%] flex justify-center items-center">
+                <div className="w-[25%] flex justify-center items-center gap-1">
                     <img src={`${preview.thumbnail || categoryThumbnail}`} alt="" className="w-[40px]"></img>
                     <span>{preview.title}</span>
                 </div>

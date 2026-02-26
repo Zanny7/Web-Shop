@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Form from "next/form";
 import { addProduct } from "./action";
+import productsData from "@/server/products.json";
 
 export default function CreateProductForm() {
   const [preview, setPreview] = useState<{
@@ -29,6 +30,19 @@ export default function CreateProductForm() {
         thumbnail: formData.get("thumbnail") as string,
     });
   }
+
+    const categoryName = preview
+  ? productsData.categories.find(
+      (cat) => cat.id === Number(preview.categoryId)
+    )?.name
+  : "";
+
+  const categoryThumbnail = preview 
+  ? productsData.categories.find(
+      (cat) => cat.id === Number(preview?.categoryId)
+    
+    )?.image
+  : "";
 
   return (
     <>
@@ -64,7 +78,7 @@ export default function CreateProductForm() {
           
           <div className="flex items-center">
             <label htmlFor="thumbnail" className="min-w-25">Thumbnail</label>
-            <input className="flex-1 border-gray-300 border" id="thumbnail" name="thumbnail" type="url" required />
+            <input className="flex-1 border-gray-300 border" id="thumbnail" name="thumbnail" type="url" />
           </div>
 
           <div className="flex items-center">
@@ -101,11 +115,11 @@ export default function CreateProductForm() {
 
             <div className="flex w-full gap-2 items-center border-gray-300 border bg-white px-4 py-1 rounded-b">
                 <div className="w-[25%] flex justify-center items-center">
-                    <img src={`${preview.thumbnail}`} alt="" className="w-[40px]"></img>
+                    <img src={`${preview.thumbnail || categoryThumbnail}`} alt="" className="w-[40px]"></img>
                     <span>{preview.title}</span>
                 </div>
-                <span className="w-[25%] flex justify-center">{preview.brand}</span>
-                <span className="w-[25%] flex justify-center">{preview.price}$</span>
+                <span className="w-[25%] flex justify-center">{categoryName}</span>
+                <span className="w-[25%] flex justify-center">{preview.price}</span>
                 <span className="w-[25%] flex justify-center">{preview.stock}</span>
             </div>
         </div>

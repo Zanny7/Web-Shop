@@ -21,7 +21,7 @@ export default function Navigation() {
     }, []);
 
     const menuItems = [
-        { name: "Products", icon: <Package2 size={20} />, href: "" },
+        { name: "Products", icon: <Package2 size={20} />, href: "/" },
         { name: "Analytics", icon: <ChartLine size={20} />, href: "" },
         { name: "Orders", icon: <ShoppingCart size={20} />, href: "" },
         { name: "Customers", icon: <Users size={20} />, href: "" },
@@ -67,7 +67,9 @@ export default function Navigation() {
             <nav className="hidden md:flex flex-col w-50 min-h-screen border-r border-gray-300 bg-white">
                 {/* Added border and padding instead of margin and a div for the line */}
 				<header className="p-5 flex flex-col border-b border-gray-300">
-					<h1 className="text-2xl font-bold">Webbutiken</h1>
+					<Link href="/">
+						<h1 className="text-2xl font-bold">Webbutiken</h1>
+					</Link>
 					<span className=" text-md text-black/50">Admin panel</span>
                 </header>
                 

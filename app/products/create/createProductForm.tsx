@@ -4,6 +4,7 @@ import { useState } from "react";
 import Form from "next/form";
 import { addProduct } from "./action";
 import productsData from "@/server/products.json";
+import { Tooltip } from "react-tooltip";
 
 export default function CreateProductForm() {
   const [preview, setPreview] = useState<{
@@ -113,7 +114,11 @@ export default function CreateProductForm() {
                 <span className="w-[25%] flex justify-center">Stock</span>
             </div>
 
-            <div className="flex w-full gap-2 items-center border-gray-300 border bg-white px-4 py-1 rounded-b">
+            <div className="flex w-full gap-2 items-center border-gray-300 border bg-white px-4 py-1 rounded-b
+              cursor-pointer"
+              data-tooltip-id="preview-tooltip"
+              data-tooltip-content={preview.description}
+            >
                 <div className="w-[25%] flex justify-center items-center gap-1">
                     <img src={`${preview.thumbnail || categoryThumbnail}`} alt="" className="w-[40px]"></img>
                     <span>{preview.title}</span>
@@ -122,6 +127,7 @@ export default function CreateProductForm() {
                 <span className="w-[25%] flex justify-center">{preview.price}</span>
                 <span className="w-[25%] flex justify-center">{preview.stock}</span>
             </div>
+            <Tooltip className="max-w-[400px]" id="preview-tooltip" />
         </div>
       )}
     </>

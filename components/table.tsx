@@ -98,13 +98,13 @@ export default function Table({ products, total, page, pages }: Props) {
 	const getStatus = (stock?: number) => {
 		if (!stock || stock === 0)
 			return (
-				<span className="text-red-600 font-medium">Out of stock</span>
+				<span className="text-danger font-medium">Out of stock</span>
 			);
 		if (stock < 20)
 			return (
-				<span className="text-orange-500 font-medium">Low stock</span>
+				<span className="text-warning font-medium">Low stock</span>
 			);
-		return <span className="text-green-600 font-medium">In stock</span>;
+		return <span className="text-success font-medium">In stock</span>;
 	};
 
 	return (
@@ -154,14 +154,14 @@ export default function Table({ products, total, page, pages }: Props) {
 								<button
 									type="button"
 									onClick={() => handleEdit(product)}
-									className="p-2 rounded-md text-purple-600 hover:bg-purple-600 hover:text-white transition"
+									className="p-2 rounded-md text-accent hover:bg-accent hover:text-white transition"
 								>
 									<SquarePen size={18} />
 								</button>
 								<button
 									type="button"
 									onClick={() => setDeleteId(product.id)}
-									className="p-2 rounded-md text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition"
+									className="p-2 rounded-md text-danger hover:bg-danger hover:text-white transition"
 								>
 									<Trash2 size={18} />
 								</button>
@@ -323,7 +323,7 @@ export default function Table({ products, total, page, pages }: Props) {
 													onClick={() =>
 														handleEdit(product)
 													}
-													className="p-2 rounded-md text-purple-600 hover:bg-purple-600 hover:text-white transition"
+													className="p-2 rounded-md text-accent/90 hover:bg-accent hover:text-white transition"
 												>
 													<SquarePen size={18} />
 												</button>
@@ -334,7 +334,7 @@ export default function Table({ products, total, page, pages }: Props) {
 												onClick={() =>
 													setDeleteId(product.id)
 												}
-												className="p-2 rounded-md text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition"
+												className="p-2 rounded-md text-danger/90 hover:bg-danger hover:text-white transition"
 											>
 												<Trash2 size={18} />
 											</button>
@@ -370,7 +370,7 @@ export default function Table({ products, total, page, pages }: Props) {
 
 								<button
 									onClick={handleDelete}
-									className="px-4 py-2 text-sm rounded bg-red-600 hover:bg-red-700 text-white"
+									className="px-4 py-2 text-sm rounded bg-danger/90 hover:bg-danger text-white"
 								>
 									Delete
 								</button>

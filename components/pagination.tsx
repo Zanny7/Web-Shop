@@ -57,7 +57,7 @@ export default function Pagination({ page, total, pages }: Props) {
 								href={`?page=${item}`}
 								className={`px-3 py-1 rounded-md ${
 									Number(page) === Number(item)
-										? "bg-purple-600 text-white"
+										? "bg-accent text-white"
 										: "border bg-white hover:bg-gray-100"
 								}`}
 							>

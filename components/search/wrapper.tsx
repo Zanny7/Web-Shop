@@ -27,7 +27,7 @@ export default function SearchBarWrapper() {
       <button
         type="button"
         onClick={toggleOrder}
-        className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700 transition"
+        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover transition"
       >
         <ArrowUpDown size={16} />
         Filter

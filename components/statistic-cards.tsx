@@ -1,21 +1,7 @@
-import type { ProductsResponse } from "@/types/product-response";
+import type { Product } from "@/types/product";
 import { Package2, CircleCheckBig, TriangleAlert, CircleX } from "lucide-react";
-import { API_URL } from "@/lib/config";
 
-
-//Fetch all products from the API and calculate the statistics for the cards
-
-export default async function StatisticCards() {
-  const { products }: ProductsResponse = await fetch(
-    `${API_URL}/products/?_expand=category`,
-      { cache: "no-store" } // Always fetch fresh data so statistic cards update immediately when products change/adds(?) but don't know if this is the best way to do it
-  ).then((res) => res.json());
-
-  // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
-  // const LOW_STOCK_THRESHOLD = 20; doesn't know if we need this since we have availabilityStatus in the db but can be useful if we want to calculate it on the fly instead of storing it in the db
-
-  // Calcuate statistic based ib all products in the database
-  const totalProducts = products.length;
+export default function StatisticCards({ products, totalProducts }: { products: Product[]; totalProducts: number }) {
 
   // Products with stock above the threshold
   const inStock = products.filter((p) => p.availabilityStatus === "In Stock").length;
@@ -93,24 +79,3 @@ export default async function StatisticCards() {
     </section>
   );
 }
-
-
-  // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
-  // const LOW_STOCK_THRESHOLD = 10;
-
-  // Calcuate statistic based ib all products in the database
-  // const totalProducts = products.length;
-
-  // Products with stock above the threshold
-  //const inStock = products.filter(
-  //  (p) => (p.stock ?? 0) > LOW_STOCK_THRESHOLD
-  // ).length;
-
-  // Products with stock between 1 and the threshold
-  //const lowStock = products.filter((p) => {
-  //  const stock = p.stock ?? 0;
-  //  return stock > 0 && stock <= LOW_STOCK_THRESHOLD;
-  // }).length;
-
-  // Products with zero stock
-  // const outOfStock = products.filter((p) => (p.stock ?? 0) === 0).length;

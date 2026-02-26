@@ -25,16 +25,22 @@ export default async function Home({
   const statusQuery =
     availabilityStatus && typeof availabilityStatus === "string" ? `&availabilityStatus=${availabilityStatus}` : "";
 
-  // we use the fetch() method to get the products from the API
-  // in this fetch we sort using _sort and _order and we limit the number of products using _limit
-  // we also use _expand to get the relational category data
-  // we can use the other destructed variables like page, total and so on to create pagination or show info
-
+  // Fetch paginated products for the table
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
     `${API_URL}/products/?_limit=${defaultLimit}&_page=${currentPage}&_sort=id&_order=${order}&_expand=category${searchQuery}${categoryQuery}${statusQuery}`,
   ).then((res) => res.json());
 
-  console.log(products);
+  // Fetch all filtered products (no pagination) for accurate statistic card counts
+  const { products: allFilteredProducts }: ProductsResponse = await fetch(
+    `${API_URL}/products/?_expand=category${searchQuery}${categoryQuery}${statusQuery}`,
+    { cache: "no-store" }
+  ).then((res) => res.json());
+
+  // Fetch total product count (unfiltered) for the "Total products" card
+  const { total: totalProducts }: ProductsResponse = await fetch(
+    `${API_URL}/products/?_limit=1`,
+    { cache: "no-store" }
+  ).then((res) => res.json());
 
 	return (
     
@@ -42,7 +48,7 @@ export default async function Home({
         <Header />
 
         <div className="">
-        <StatisticCards products={products} />
+        <StatisticCards products={allFilteredProducts} totalProducts={totalProducts} />
         <Suspense>
           <SearchBarWrapper />
         </Suspense>

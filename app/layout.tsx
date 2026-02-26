@@ -13,11 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="flex">
-        <Navigation />
-        {children}
-      </body>
-    </html>
+		<html lang="en">
+			<body className="flex">
+        <div className="md:ml-56">
+          
+				<Navigation />
+        </div>
+				{children}
+			</body>
+		</html>
   );
 }

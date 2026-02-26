@@ -12,7 +12,7 @@ export default async function StatisticCards() {
   ).then((res) => res.json());
 
   // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
-  const LOW_STOCK_THRESHOLD = 10;
+  const LOW_STOCK_THRESHOLD = 20;
 
   // Calcuate statistic based ib all products in the database
   const totalProducts = products.length;
@@ -37,29 +37,29 @@ export default async function StatisticCards() {
       title: "Total products",
       value: totalProducts,
       icon: Package2,
-      bg: "bg-purple-100",
-      iconColor: "text-purple-600",
+      bg: "bg-accent-soft",
+      iconColor: "text-accent",
     },
     {
       title: "In stock",
       value: inStock,
       icon: CircleCheckBig,
-      bg: "bg-green-100",
-      iconColor: "text-green-600",
+      bg: "bg-success-soft",
+      iconColor: "text-success",
     },
     {
       title: "Low stock",
       value: lowStock,
       icon: TriangleAlert,
-      bg: "bg-orange-100",
-      iconColor: "text-orange-600",
+      bg: "bg-warning-soft",
+      iconColor: "text-warning",
   },
     {
       title: "Out of stock",
       value: outOfStock,
       icon: CircleX,
-      bg: "bg-red-100",
-      iconColor: "text-red-600",
+      bg: "bg-danger-soft",
+      iconColor: "text-danger",
   },
     
   ]

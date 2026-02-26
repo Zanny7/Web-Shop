@@ -41,7 +41,7 @@ export default async function Home({
       <main className="w-full p-5">
         <Header />
 
-        <div className="w-10/12 mx-auto">
+        <div className="">
         <StatisticCards products={products} />
         <Suspense>
           <SearchBarWrapper />

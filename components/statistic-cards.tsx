@@ -12,24 +12,18 @@ export default async function StatisticCards() {
   ).then((res) => res.json());
 
   // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
-  const LOW_STOCK_THRESHOLD = 10;
+  // const LOW_STOCK_THRESHOLD = 20; doesn't know if we need this since we have availabilityStatus in the db but can be useful if we want to calculate it on the fly instead of storing it in the db
 
   // Calcuate statistic based ib all products in the database
   const totalProducts = products.length;
 
   // Products with stock above the threshold
-  const inStock = products.filter(
-    (p) => (p.stock ?? 0) > LOW_STOCK_THRESHOLD
-  ).length;
-
+  const inStock = products.filter((p) => p.availabilityStatus === "In Stock").length;
   // Products with stock between 1 and the threshold
-  const lowStock = products.filter((p) => {
-    const stock = p.stock ?? 0;
-    return stock > 0 && stock <= LOW_STOCK_THRESHOLD;
-  }).length;
+  const lowStock = products.filter((p) => p.availabilityStatus === "Low Stock").length;
 
   // Products with zero stock
-  const outOfStock = products.filter((p) => (p.stock ?? 0) === 0).length;
+  const outOfStock = products.filter((p) => p.availabilityStatus === "Out of Stock").length;
   
   // Create an array of stats to map over when rendering the cards, this way we can easily add more cards in the future if needed without changing the structure of the component
   const stats = [
@@ -99,3 +93,24 @@ export default async function StatisticCards() {
     </section>
   );
 }
+
+
+  // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
+  // const LOW_STOCK_THRESHOLD = 10;
+
+  // Calcuate statistic based ib all products in the database
+  // const totalProducts = products.length;
+
+  // Products with stock above the threshold
+  //const inStock = products.filter(
+  //  (p) => (p.stock ?? 0) > LOW_STOCK_THRESHOLD
+  // ).length;
+
+  // Products with stock between 1 and the threshold
+  //const lowStock = products.filter((p) => {
+  //  const stock = p.stock ?? 0;
+  //  return stock > 0 && stock <= LOW_STOCK_THRESHOLD;
+  // }).length;
+
+  // Products with zero stock
+  // const outOfStock = products.filter((p) => (p.stock ?? 0) === 0).length;

@@ -11755,7 +11755,7 @@
       "price": 129.99,
       "discountPercentage": 12.6,
       "rating": 3.52,
-      "stock": 12,
+      "stock": 0,
       "tags": [
         "watches",
         "women's watches"
@@ -11808,7 +11808,34 @@
         "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/3.webp"
       ],
       "thumbnail": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp",
-      "categoryId": 24
+      "categoryId": 24,
+      "category": {
+        "id": 24,
+        "name": "Women's Watches",
+        "slug": "womens-watches",
+        "image": "https://placehold.co/600x400"
+      }
+    },
+    {
+      "title": "test",
+      "brand": "te",
+      "description": "sde",
+      "thumbnail": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXxlbnwwfHwwfHx8MA%3D%3D",
+      "price": 43,
+      "categoryId": 9,
+      "stock": 29,
+      "meta": {
+        "createdAt": "2026-02-26T11:53:54.236Z",
+        "updatedAt": "2026-02-26T11:53:54.236Z"
+      },
+      "id": 195,
+      "sku": "MEN-TE-TES-195",
+      "category": {
+        "id": 9,
+        "name": "Men's Shoes",
+        "slug": "mens-shoes",
+        "image": "https://placehold.co/600x400"
+      }
     }
   ],
   "categories": [

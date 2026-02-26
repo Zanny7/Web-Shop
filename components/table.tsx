@@ -92,10 +92,16 @@ export default function Table({ products, total, page, pages }: Props) {
     setEditingId(null);
   };
 
-  const getStatus = (status?: string) => {
-    if (status === "Out of Stock") return <span className="text-danger font-medium">Out of stock</span>;
-    if (status === "Low Stock") return <span className="text-warning font-medium">Low stock</span>;
-    return <span className="text-success font-medium">In stock</span>;
+  const getStatus = (stock?: number) => {
+		if (!stock || stock === 0)
+			return (
+				<span className="text-danger font-medium">Out of stock</span>
+			);
+
+		if (stock < 20)
+			return <span className="text-warning font-medium">Low stock</span>;
+
+		return <span className="text-success font-medium">In stock</span>;
   };
 
   return (
@@ -138,7 +144,7 @@ export default function Table({ products, total, page, pages }: Props) {
 									<span className="font-medium">Stock:</span>{" "}
 									{product.stock}
 								</p>
-								<p>{getStatus(product.availabilityStatus)}</p>
+								<p>{getStatus(product.stock)} </p>
 							</div>
 
 							<div className="mt-3 flex justify-end gap-2">
@@ -286,7 +292,7 @@ export default function Table({ products, total, page, pages }: Props) {
 									</td>
 
 									<td className="px-6 py-5">
-										{getStatus(product.availabilityStatus)}
+										{getStatus(product.stock)}
 									</td>
 
 									<td className="px-6 py-5 text-right">

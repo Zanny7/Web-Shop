@@ -103,16 +103,26 @@ export default function CreateProductForm() {
           </div>
       </Form>
 
-      {preview && (
-        <div className="mt-8 w-8/12 mx-auto  flex flex-col mt-30 mb-20">
-            <h2 className="text-xl font-bold mb-5 text-center">Preview</h2>
+			{preview && (
+				<div className="mt-8 w-8/12 mx-auto  flex flex-col mb-20">
+					<h2 className="text-xl font-bold mb-5 text-center">
+						Preview
+					</h2>
 
-            <div className="flex w-full gap-2 px-4 py-2 bg-neutral-200 rounded-t">
-                <span className="w-[25%] flex justify-center">Product</span>
-                <span className="w-[25%] flex justify-center">Category</span>
-                <span className="w-[25%] flex justify-center">Price</span>
-                <span className="w-[25%] flex justify-center">Stock</span>
-            </div>
+					<div className="flex w-full gap-2 px-4 py-2 bg-neutral-200 rounded-t">
+						<span className="w-[25%] flex justify-center">
+							Product
+						</span>
+						<span className="w-[25%] flex justify-center">
+							Category
+						</span>
+						<span className="w-[25%] flex justify-center">
+							Price
+						</span>
+						<span className="w-[25%] flex justify-center">
+							Stock
+						</span>
+					</div>
 
             <div className="flex w-full gap-2 items-center border-gray-300 border bg-white px-4 py-1 rounded-b
               cursor-pointer"

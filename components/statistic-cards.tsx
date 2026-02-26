@@ -12,7 +12,7 @@ export default async function StatisticCards() {
   ).then((res) => res.json());
 
   // Threshold for low stock can be adjusted as needed, currently set to 10 for demonstration purposes
-  const LOW_STOCK_THRESHOLD = 10;
+  const LOW_STOCK_THRESHOLD = 20;
 
   // Calcuate statistic based ib all products in the database
   const totalProducts = products.length;

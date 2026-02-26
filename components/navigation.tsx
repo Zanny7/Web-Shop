@@ -34,7 +34,7 @@ export default function Navigation() {
 	}, []);
 
 	const menuItems = [
-		{ name: "Products", icon: <Package2 size={20} />, href: "" },
+		{ name: "Products", icon: <Package2 size={20} />, href: "/" },
 		{ name: "Analytics", icon: <ChartLine size={20} />, href: "" },
 		{ name: "Orders", icon: <ShoppingCart size={20} />, href: "" },
 		{ name: "Customers", icon: <Users size={20} />, href: "" },
